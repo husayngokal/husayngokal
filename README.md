@@ -68,8 +68,6 @@
   </tr>
 </table>
 
-> *The "currently" row mirrors the hero on [husayngokal.com](https://husayngokal.com). Edit the three cells whenever the work moves.*
-
 ---
 
 ### `02 ·` Polymathy in practice
@@ -177,8 +175,6 @@
 
 </div>
 
-> *The WakaTime card needs a [WakaTime account](https://wakatime.com) and IDE plugin — until then it'll show empty. Remove it or set it up.*
-
 ---
 
 ### `06 ·` In three dimensions
@@ -200,17 +196,9 @@
 
 </div>
 
-> *The 3D calendar and snake animation require GitHub Actions to generate them. See [setup notes](#setup-notes) at the bottom.*
-
 ---
 
-### `07 ·` Trophies & recognition
-
-<div align="center">
-
-<img src="https://github-profile-trophy.vercel.app/?username=husayngokal&theme=flat&no-frame=true&no-bg=true&row=1&column=7&margin-w=8&margin-h=8&title=Stars,Followers,Commits,Issues,PullRequest,Reviews,YearsOn" alt="GitHub trophies" />
-
-</div>
+### `07 ·` Recognition
 
 **Academic & professional**
 
@@ -221,13 +209,6 @@
 - ⚓ **ICS Introduction to Shipping** (May 2026) · **ICS Marine Insurance** in progress
 - 🏛️ ASTI Higher International Diploma in Electrical & Electronic Engineering · EduQual Level 5
 - 🤝 Former collaborator — quantum optics startup (Tehran) · researchers from Sharif University of Technology and Shahid Beheshti University
-
-**GitHub achievements**
-
-![Pull Shark x2](https://img.shields.io/badge/Pull_Shark-x2-0B1F3D?style=for-the-badge&labelColor=EFE7D7)
-![Pair Extraordinaire](https://img.shields.io/badge/Pair_Extraordinaire-0B1F3D?style=for-the-badge&labelColor=EFE7D7)
-![Quickdraw](https://img.shields.io/badge/Quickdraw-0B1F3D?style=for-the-badge&labelColor=EFE7D7)
-![YOLO](https://img.shields.io/badge/YOLO-0B1F3D?style=for-the-badge&labelColor=EFE7D7)
 
 ---
 
@@ -259,103 +240,3 @@
 <sub>weekly email when anything changes on the site — <a href="https://husayngokal.com">husayngokal.com</a></sub>
 
 </div>
-
----
-
-<details>
-<summary><b>📐 Setup notes</b> — how to wire up the animated pieces</summary>
-
-<br/>
-
-This README references several GitHub Actions that need to be set up in your `husayngokal/husayngokal` repo. Create `.github/workflows/` and drop in these files:
-
-**1. Snake animation** (`.github/workflows/snake.yml`)
-
-```yaml
-name: Generate Snake
-on:
-  schedule: [{cron: "0 */24 * * *"}]
-  workflow_dispatch:
-  push: {branches: ["main"]}
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    permissions: {contents: write}
-    steps:
-      - uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: husayngokal
-          outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=#0B1F3D&color_dots=#EFE7D7,#d4cab3,#a99573,#0B1F3D,#0B1F3D
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=#EFE7D7
-      - uses: crazy-max/ghaction-github-pages@v3
-        with: {target_branch: output, build_dir: dist}
-        env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
-```
-
-**2. 3D contribution calendar** (`.github/workflows/3d-contrib.yml`)
-
-```yaml
-name: GitHub Profile 3D Contrib
-on:
-  schedule: [{cron: "0 18 * * *"}]
-  workflow_dispatch:
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions: {contents: write}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: yoshi389111/github-profile-3d-contrib@0.7.1
-        env:
-          USERNAME: husayngokal
-          SETTING_JSON: assets/setting.json
-      - name: Commit
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add -A
-          git commit -m "generated" || true
-          git push
-```
-
-**3. Notebook RSS sync** (`.github/workflows/blog-post-workflow.yml`)
-
-```yaml
-name: Latest blog post workflow
-on:
-  schedule: [{cron: '0 */6 * * *'}]
-  workflow_dispatch:
-jobs:
-  update-readme-with-blog:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: gautamkrishnar/blog-post-workflow@v1
-        with:
-          feed_list: "https://husayngokal.com/rss.xml"
-          max_post_count: 5
-```
-
-> Confirm your Next.js site exposes RSS at `/rss.xml` or `/feed.xml`. If not, add a feed route and update the URL above.
-
-</details>
-
-<details>
-<summary><b>🎨 Theming notes</b> — palette and design tokens</summary>
-
-<br/>
-
-All widgets use the husayngokal.com / Slipwise palette:
-
-| Token | Hex | Use |
-|---|---|---|
-| Parchment (background) | `#EFE7D7` | widget backgrounds, page tone |
-| Navy (primary) | `#0B1F3D` | text, borders, badges, charts |
-| Slipwise parchment | `#F2EEE3` | secondary surfaces |
-
-To change palette globally, find-and-replace `EFE7D7` and `0B1F3D` in this file.
-
-The banner SVG (`banner.svg`) is hand-authored — open it and edit the SVG text nodes to change the section number, subtitle, or memento mori line.
-
-</details>
