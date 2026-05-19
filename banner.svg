@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-label="husayn gokal — polymathy in practice">
+  <defs>
+    <pattern id="paperGrain" patternUnits="userSpaceOnUse" width="200" height="200">
+      <rect width="200" height="200" fill="#EFE7D7"/>
+      <circle cx="40" cy="60" r="0.5" fill="#0B1F3D" opacity="0.04"/>
+      <circle cx="120" cy="30" r="0.5" fill="#0B1F3D" opacity="0.04"/>
+      <circle cx="170" cy="150" r="0.5" fill="#0B1F3D" opacity="0.04"/>
+      <circle cx="80" cy="180" r="0.5" fill="#0B1F3D" opacity="0.04"/>
+      <circle cx="20" cy="140" r="0.5" fill="#0B1F3D" opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Parchment background with subtle grain -->
+  <rect width="1200" height="360" fill="url(#paperGrain)"/>
+
+  <!-- Editorial double border -->
+  <rect x="32" y="32" width="1136" height="296" fill="none" stroke="#0B1F3D" stroke-width="1.5"/>
+  <rect x="40" y="40" width="1120" height="280" fill="none" stroke="#0B1F3D" stroke-width="0.4"/>
+
+  <!-- Section marker -->
+  <text x="64" y="84" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#0B1F3D" letter-spacing="4" font-weight="400">01 · POLYMATHY IN PRACTICE</text>
+  <line x1="64" y1="100" x2="220" y2="100" stroke="#0B1F3D" stroke-width="0.8"/>
+
+  <!-- Main wordmark -->
+  <text x="64" y="206" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="#0B1F3D" font-weight="400" letter-spacing="-3">husayn gokal.</text>
+
+  <!-- Italic subtitle -->
+  <text x="66" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#0B1F3D" font-style="italic" font-weight="300">working files of one mind across eight domains.</text>
+
+  <!-- Slip mark, right side: folded Lloyd's-style underwriting slip with signature lines -->
+  <g transform="translate(940, 86)">
+    <!-- Outer slip with folded corner -->
+    <path d="M 0 0 L 150 0 L 190 40 L 190 188 L 0 188 Z" fill="#EFE7D7" stroke="#0B1F3D" stroke-width="1.5"/>
+    <path d="M 150 0 L 150 40 L 190 40" fill="none" stroke="#0B1F3D" stroke-width="1.5"/>
+    <!-- Fold shadow triangle -->
+    <path d="M 150 0 L 150 40 L 190 40 Z" fill="#0B1F3D" opacity="0.06"/>
+    <!-- Header line -->
+    <line x1="16" y1="60" x2="174" y2="60" stroke="#0B1F3D" stroke-width="0.6"/>
+    <!-- Three field labels -->
+    <text x="16" y="78" font-family="Georgia, serif" font-size="9" fill="#0B1F3D" letter-spacing="2" opacity="0.7">ASSURED</text>
+    <line x1="16" y1="98" x2="174" y2="98" stroke="#0B1F3D" stroke-width="0.4" stroke-dasharray="2,2"/>
+    <text x="16" y="118" font-family="Georgia, serif" font-size="9" fill="#0B1F3D" letter-spacing="2" opacity="0.7">INTEREST</text>
+    <line x1="16" y1="138" x2="174" y2="138" stroke="#0B1F3D" stroke-width="0.4" stroke-dasharray="2,2"/>
+    <text x="16" y="158" font-family="Georgia, serif" font-size="9" fill="#0B1F3D" letter-spacing="2" opacity="0.7">CONDITIONS</text>
+    <line x1="16" y1="172" x2="174" y2="172" stroke="#0B1F3D" stroke-width="0.4" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Bottom rule -->
+  <line x1="64" y1="284" x2="1136" y2="284" stroke="#0B1F3D" stroke-width="0.4"/>
+
+  <!-- Memento mori footer left -->
+  <text x="64" y="308" font-family="Georgia, serif" font-size="12" fill="#0B1F3D" letter-spacing="2" font-style="italic">the work is temporary. memento mori.</text>
+
+  <!-- Location footer right -->
+  <text x="1136" y="308" font-family="Georgia, serif" font-size="12" fill="#0B1F3D" letter-spacing="3" text-anchor="end">SHARJAH · UAE</text>
+</svg>
